@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { E164Number } from "libphonenumber-js/core";
+import Inputt from 'react-phone-number-input/input'
+import { FaPhoneAlt } from "react-icons/fa";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
 import { Control } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
-
+import flag from "../public/assets/icons/flag.png"
 import { Checkbox } from "./ui/checkbox";
 import {
   FormControl,
@@ -78,17 +80,30 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       );
     case FormFieldType.PHONE_INPUT:
       return (
-        <FormControl>
-          <PhoneInput
-            defaultCountry="US"
-            placeholder={props.placeholder}
-            international
-            withCountryCallingCode
-            value={field.value as E164Number | undefined}
+        <div className="flex rounded-md border border-dark-500 bg-dark-400">
+           {/* <Image
+              src={<FaPhoneAlt />}
+              height={24}
+              width={24}
+              alt="flag"
+              className="ml-2"
+            /> */}
+            
+            {/* <FaPhoneAlt className="ml-2" /> */}
+
+            <FormControl>
+          <Inputt
+            defaultCountry="IN"
+            // disableDropdown={true} 
+            placeholder="    98765 43210"
+            // international
+            // withCountryCallingCode
+            // value={field.value as E164Number | undefined}
             onChange={field.onChange}
-            className="input-phone"
+            className="shad-input border-0 border-black outline-none py-4 w-auto"
           />
         </FormControl>
+        </div>
       );
     case FormFieldType.CHECKBOX:
       return (
@@ -120,7 +135,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               showTimeSelect={props.showTimeSelect ?? false}
               selected={field.value}
               onChange={(date) => field.onChange(date)}
-              timeInputLabel="Time:"
+              timeInputLphoneabel="Time:"
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               wrapperClassName="date-picker"
             />

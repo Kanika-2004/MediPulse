@@ -95,15 +95,15 @@ const PatientForm=()=>{
           iconAlt="email"
        />
 
-<Customformfield
-          fieldType={FormFieldType.INPUT}
-          control={form.control}
-          name="phone"
-          label="Phone Number"
-          placeholder="Enter your phone number"
-          
-       />
-        
+
+        <Customformfield
+              fieldType={FormFieldType.PHONE_INPUT}
+              control={form.control}
+              name="phone"
+              label="Phone Number"
+              placeholder="(555) 123-4567"
+          />
+       
        
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
