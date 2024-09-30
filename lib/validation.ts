@@ -8,7 +8,7 @@ export const UserFormValidation = z.object({
   email: z.string().email("Invalid email address"),
   phone: z
     .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+    // .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
 });
 
 export const PatientFormValidation = z.object({
@@ -18,8 +18,8 @@ export const PatientFormValidation = z.object({
     .max(50, "Name must be at most 50 characters"),
   email: z.string().email("Invalid email address"),
   phone: z
-    .string(),
-    // .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+    .string()
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
   birthDate: z.coerce.date(),
   gender: z.enum(["Male", "Female", "Other"]),
   address: z
